@@ -149,45 +149,9 @@ master     Ready    control-plane   XXm   v1.xx
 worker     Ready    <none>          XXm   v1.xx
 ```
 
----
 
-## 🧪 (Optional) Test Deployment
 
-```bash
-kubectl create deployment nginx --image=nginx
-kubectl expose deployment nginx --type=NodePort --port=80
-kubectl get svc
-```
 
-Access:
-```
-http://<worker-ip>:<nodeport>
-```
 
----
 
-## ⚠️ Common Issues
 
-### Node Not Ready
-- CNI plugin not installed
-
-### kubeadm init fails
-- Swap not disabled
-- Ports blocked
-
-### Worker join fails (token expired)
-```bash
-kubeadm token create --print-join-command
-```
-
----
-
-## 🎯 Summary
-
-1. Prepare nodes (swap, kernel, networking)
-2. Install container runtime
-3. Install kubeadm, kubelet, kubectl
-4. Initialize master node
-5. Install CNI plugin
-6. Join worker node
-7. Verify cluster
