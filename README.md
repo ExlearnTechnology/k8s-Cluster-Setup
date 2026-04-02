@@ -10,6 +10,12 @@ This guide explains how to set up a Kubernetes cluster using kubeadm on:
 
 ## ⚙️ 1. Run on BOTH EC2 instances (Master + Worker)
 
+### 1.0 Update and Set Hostname
+```bash
+sudo apt update 
+sudo hostnamectl set-hostname master/worker 
+```
+
 ### 1.1 Disable swap
 ```bash
 sudo swapoff -a
@@ -149,7 +155,7 @@ master     Ready    control-plane   XXm   v1.xx
 worker     Ready    <none>          XXm   v1.xx
 ```
 
-## ✅ 6. For Auto-Completion Execute below commands 
+## ✅ 7. For Auto-Completion Execute below commands 
 ```
 sudo apt install -y bash-completion
 echo "source <(kubectl completion bash)" >> ~/.bashrc
